@@ -28,6 +28,14 @@ void addMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols],
   }
 }
 
+void subtractMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols], int result[rows][cols]) {
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      result[i][j] = mat1[i][j] - mat2[i][j];
+    }
+  }
+}
+
 int main() {
   int rows, cols;
 
@@ -36,7 +44,7 @@ int main() {
   printf("Enter the number of columns: ");
   scanf("%d", &cols);
 
-  int matrix1[rows][cols], matrix2[rows][cols], sum[rows][cols];
+  int matrix1[rows][cols], matrix2[rows][cols], sum[rows][cols], sub[rows][cols];
 
   printf("Enter the values for the first matrix:\n");
   getMatrix(rows, cols, matrix1);
@@ -45,9 +53,13 @@ int main() {
   getMatrix(rows, cols, matrix2);
 
   addMatrices(rows, cols, matrix1, matrix2, sum);
+  subtractMatrices(rows, cols, matrix1, matrix2, sum);
 
   printf("Resultant matrix after addition:\n");
   printMatrix(rows, cols, sum);
+
+  printf("Resultant matrix after subtraction:\n");
+  printMatrix(rows, cols, sub);
 
   return 0;
 }
