@@ -1,1 +1,4 @@
 ./main
+./ccls-cache
+./main.o
+./matrix_operations

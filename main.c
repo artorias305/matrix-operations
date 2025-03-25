@@ -36,6 +36,22 @@ void subtractMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][c
   }
 }
 
+void multiplyMatrices(int r1, int c1, int r2, int c2, int mat1[r1][c1], int mat2[r2][c2], int result[r1][c2]) {
+  for (int i = 0; i < r1; i++) {
+    for (int j = 0; j < c2; j++) {
+      result[i][j] = 0;
+    }
+  }
+
+  for (int i = 0; i < r1; i++) {
+    for (int j = 0; j < c2; j++) {
+      for (int k = 0; k < c1; k++) {
+        result[i][j] += mat1[i][k] * mat2[k][j];
+      }
+    }
+  }
+}
+
 int main() {
   int rows, cols;
 
